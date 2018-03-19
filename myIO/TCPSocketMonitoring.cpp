@@ -87,13 +87,14 @@ void TCPSocketMonitoring::StartMonitoring()
 
 void TCPSocketMonitoring::StopMonitoringInAnotherThread()
 {
-    StopMonitoringPtr->AddPostEvent();
+    //StopMonitoringPtr->AddPostEvent();
+    StopMonitoring();
 }
 
 void TCPSocketMonitoring::StopMonitoring()
 {
-    if (_isMonitoringActive && isOpen()) {
-        _isMonitoringActive = false;
+    _isMonitoringActive = false;
+    if (isOpen()) {
         Disconnect();
     }
 }

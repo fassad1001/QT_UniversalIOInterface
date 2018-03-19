@@ -27,7 +27,7 @@ void ComPortMonitoring::start(ParamSerialPort parameters, int period, bool clear
         applyComPortParameters();
         setMonitorPeriod(period);
         if (clearStart)
-            m_ComPortPtr->readAll();
+            m_ComPortPtr->readAll();        
         StartMonitoringInAnotherThread();
     }
 

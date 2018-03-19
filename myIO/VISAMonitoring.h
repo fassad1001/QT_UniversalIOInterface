@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "visa.h"
+#include <QPair>
 
 //    void start(ViRsrc VISA_ADDRESS);
 //Значения переменных установленны

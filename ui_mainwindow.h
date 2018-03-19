@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.8.0
+** Created by: Qt User Interface Compiler version 5.2.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -158,19 +158,19 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        stopCountdownButton_4->setText(QApplication::translate("MainWindow", "STOP", Q_NULLPTR));
-        label_2->setText(QApplication::translate("MainWindow", "TCPIP", Q_NULLPTR));
-        TCP_ON->setText(QApplication::translate("MainWindow", "ON", Q_NULLPTR));
-        startSingleCountButton_2->setText(QApplication::translate("MainWindow", "single", Q_NULLPTR));
-        COM_ON->setText(QApplication::translate("MainWindow", "ON", Q_NULLPTR));
-        label->setText(QApplication::translate("MainWindow", "COM", Q_NULLPTR));
-        clearMessageBufferButton->setText(QApplication::translate("MainWindow", "\320\236\321\207\320\270\321\201\321\202\320\270\321\202\321\214", Q_NULLPTR));
-        startCountdownButton_3->setText(QApplication::translate("MainWindow", "countdown", Q_NULLPTR));
-        VISA_ON->setText(QApplication::translate("MainWindow", "ON", Q_NULLPTR));
-        label_3->setText(QApplication::translate("MainWindow", "VISA", Q_NULLPTR));
-        SEND->setText(QApplication::translate("MainWindow", "SEND", Q_NULLPTR));
-        OFF->setText(QApplication::translate("MainWindow", "OFF", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        stopCountdownButton_4->setText(QApplication::translate("MainWindow", "STOP", 0));
+        label_2->setText(QApplication::translate("MainWindow", "TCPIP", 0));
+        TCP_ON->setText(QApplication::translate("MainWindow", "ON", 0));
+        startSingleCountButton_2->setText(QApplication::translate("MainWindow", "single", 0));
+        COM_ON->setText(QApplication::translate("MainWindow", "ON", 0));
+        label->setText(QApplication::translate("MainWindow", "COM", 0));
+        clearMessageBufferButton->setText(QApplication::translate("MainWindow", "\320\236\321\207\320\270\321\201\321\202\320\270\321\202\321\214", 0));
+        startCountdownButton_3->setText(QApplication::translate("MainWindow", "countdown", 0));
+        VISA_ON->setText(QApplication::translate("MainWindow", "ON", 0));
+        label_3->setText(QApplication::translate("MainWindow", "VISA", 0));
+        SEND->setText(QApplication::translate("MainWindow", "SEND", 0));
+        OFF->setText(QApplication::translate("MainWindow", "OFF", 0));
     } // retranslateUi
 
 };

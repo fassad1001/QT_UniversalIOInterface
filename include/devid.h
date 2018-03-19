@@ -1,0 +1,28 @@
+#ifndef DEVID_H
+#define DEVID_H
+
+#define UPSGEN40ID 1
+#define UPSHMPID 2
+#define UPS103ID 3
+#define G231MID 4
+#define OL101ID 5
+#define JVCID 6
+#define MPEG2CODEC 7
+#define HIGHFREQCOMMID 8
+#define POWERCOMMID 9
+#define COMMANDFORMERID 10
+#define OL511ID 11
+#define APPA79ID 12
+#define QNAP431UID 13
+#define WFM7200ID 14
+#define PVS1616VID 15
+#define PVS6401VID 16
+#define PVS1616HDSIID 17
+#define PVS3201HDSIID 18
+#define B2350ID 19
+#define STREAMANALYSERID 20
+#define DGS1024AID 21
+#define AFL12AID 22
+#define G420ID 23
+
+#endif // DEVID_H

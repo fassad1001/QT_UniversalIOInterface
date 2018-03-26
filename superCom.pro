@@ -16,7 +16,7 @@ DEPENDPATH += . ../Visa/visa
 INCLUDEPATH += . ../Visa/visa
 LIBS     += -L. -lvisa32
 LIBS += -lWs2_32
-
+QMAKE_CXXFLAGS += -std=c++11
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -39,7 +39,10 @@ SOURCES += \
     myIO/DeviceIOInterface.cpp \
     myIO/DeviceParameters.cpp \
     myIO/TCPSocketMonitoring.cpp \
-    myIO/VISAMonitoring.cpp
+    myIO/VISAMonitoring.cpp \
+    include/TCPServer.cpp \
+    include/TCPSocket.cpp \
+    myIO/TCPServerMonitoring.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -53,7 +56,10 @@ HEADERS += \
     myIO/DeviceIOInterface.h \
     myIO/DeviceParameters.h \
     myIO/TCPSocketMonitoring.h \
-    myIO/VISAMonitoring.h
+    myIO/VISAMonitoring.h \
+    include/TCPServer.h \
+    include/TCPSocket.h \
+    myIO/TCPServerMonitoring.h
 
 FORMS += \
         mainwindow.ui

@@ -7,9 +7,9 @@
 #include <windows.h>
 #include <winsock2.h>
 
-const int SOCKET_READ_TIMEOUT_SEC = 5;
+const int SOCKET_READ_TIMEOUT_SEC2 = 5;
 
-class TCPSocket
+class TCPSocket2
 {
 private:
     bool isConected;
@@ -22,9 +22,9 @@ private:
 protected:
     SOCKET u_sock;
 public:
-    TCPSocket();
-    TCPSocket(QString ip, unsigned int port);
-     ~TCPSocket();
+    TCPSocket2();
+    TCPSocket2(QString ip, unsigned int port);
+     ~TCPSocket2();
 
     int Connect();
     int Connect(QString ip, unsigned int port);

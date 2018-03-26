@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.8.0
+** Created by: Qt User Interface Compiler version 5.2.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -34,20 +34,22 @@ public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     QGridLayout *gridLayout;
-    QSpinBox *spinBox;
     QPushButton *stopCountdownButton_4;
-    QLabel *label_2;
-    QTextEdit *textEdit;
-    QPushButton *TCP_ON;
-    QPushButton *startSingleCountButton_2;
-    QPushButton *COM_ON;
-    QLabel *label;
     QPushButton *clearMessageBufferButton;
     QPushButton *startCountdownButton_3;
     QPushButton *VISA_ON;
     QLabel *label_3;
     QPushButton *SEND;
     QPushButton *OFF;
+    QTextEdit *textEdit;
+    QPushButton *startSingleCountButton_2;
+    QPushButton *TCP_SERVER_ON;
+    QPushButton *TCP_ON;
+    QLabel *label_2;
+    QLabel *label;
+    QSpinBox *spinBox;
+    QPushButton *COM_ON;
+    QLabel *label_4;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -66,55 +68,20 @@ public:
         gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        spinBox = new QSpinBox(centralWidget);
-        spinBox->setObjectName(QStringLiteral("spinBox"));
-
-        gridLayout->addWidget(spinBox, 3, 2, 2, 1);
-
         stopCountdownButton_4 = new QPushButton(centralWidget);
         stopCountdownButton_4->setObjectName(QStringLiteral("stopCountdownButton_4"));
 
-        gridLayout->addWidget(stopCountdownButton_4, 3, 3, 2, 1);
-
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        gridLayout->addWidget(label_2, 1, 0, 1, 1);
-
-        textEdit = new QTextEdit(centralWidget);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-
-        gridLayout->addWidget(textEdit, 5, 0, 1, 4);
-
-        TCP_ON = new QPushButton(centralWidget);
-        TCP_ON->setObjectName(QStringLiteral("TCP_ON"));
-
-        gridLayout->addWidget(TCP_ON, 1, 1, 1, 1);
-
-        startSingleCountButton_2 = new QPushButton(centralWidget);
-        startSingleCountButton_2->setObjectName(QStringLiteral("startSingleCountButton_2"));
-
-        gridLayout->addWidget(startSingleCountButton_2, 3, 0, 1, 2);
-
-        COM_ON = new QPushButton(centralWidget);
-        COM_ON->setObjectName(QStringLiteral("COM_ON"));
-
-        gridLayout->addWidget(COM_ON, 0, 1, 1, 1);
-
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout->addWidget(label, 0, 0, 1, 1);
+        gridLayout->addWidget(stopCountdownButton_4, 4, 3, 2, 1);
 
         clearMessageBufferButton = new QPushButton(centralWidget);
         clearMessageBufferButton->setObjectName(QStringLiteral("clearMessageBufferButton"));
 
-        gridLayout->addWidget(clearMessageBufferButton, 6, 0, 1, 4);
+        gridLayout->addWidget(clearMessageBufferButton, 7, 0, 1, 4);
 
         startCountdownButton_3 = new QPushButton(centralWidget);
         startCountdownButton_3->setObjectName(QStringLiteral("startCountdownButton_3"));
 
-        gridLayout->addWidget(startCountdownButton_3, 4, 0, 1, 2);
+        gridLayout->addWidget(startCountdownButton_3, 5, 0, 1, 2);
 
         VISA_ON = new QPushButton(centralWidget);
         VISA_ON->setObjectName(QStringLiteral("VISA_ON"));
@@ -135,6 +102,52 @@ public:
         OFF->setObjectName(QStringLiteral("OFF"));
 
         gridLayout->addWidget(OFF, 0, 2, 3, 1);
+
+        textEdit = new QTextEdit(centralWidget);
+        textEdit->setObjectName(QStringLiteral("textEdit"));
+
+        gridLayout->addWidget(textEdit, 6, 0, 1, 4);
+
+        startSingleCountButton_2 = new QPushButton(centralWidget);
+        startSingleCountButton_2->setObjectName(QStringLiteral("startSingleCountButton_2"));
+
+        gridLayout->addWidget(startSingleCountButton_2, 4, 0, 1, 2);
+
+        TCP_SERVER_ON = new QPushButton(centralWidget);
+        TCP_SERVER_ON->setObjectName(QStringLiteral("TCP_SERVER_ON"));
+
+        gridLayout->addWidget(TCP_SERVER_ON, 3, 1, 1, 1);
+
+        TCP_ON = new QPushButton(centralWidget);
+        TCP_ON->setObjectName(QStringLiteral("TCP_ON"));
+
+        gridLayout->addWidget(TCP_ON, 1, 1, 1, 1);
+
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout->addWidget(label_2, 1, 0, 1, 1);
+
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout->addWidget(label, 0, 0, 1, 1);
+
+        spinBox = new QSpinBox(centralWidget);
+        spinBox->setObjectName(QStringLiteral("spinBox"));
+
+        gridLayout->addWidget(spinBox, 4, 2, 2, 1);
+
+        COM_ON = new QPushButton(centralWidget);
+        COM_ON->setObjectName(QStringLiteral("COM_ON"));
+        COM_ON->setEnabled(true);
+
+        gridLayout->addWidget(COM_ON, 0, 1, 1, 1);
+
+        label_4 = new QLabel(centralWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        gridLayout->addWidget(label_4, 3, 0, 1, 1);
 
 
         horizontalLayout->addLayout(gridLayout);
@@ -158,19 +171,21 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        stopCountdownButton_4->setText(QApplication::translate("MainWindow", "STOP", Q_NULLPTR));
-        label_2->setText(QApplication::translate("MainWindow", "TCPIP", Q_NULLPTR));
-        TCP_ON->setText(QApplication::translate("MainWindow", "ON", Q_NULLPTR));
-        startSingleCountButton_2->setText(QApplication::translate("MainWindow", "single", Q_NULLPTR));
-        COM_ON->setText(QApplication::translate("MainWindow", "ON", Q_NULLPTR));
-        label->setText(QApplication::translate("MainWindow", "COM", Q_NULLPTR));
-        clearMessageBufferButton->setText(QApplication::translate("MainWindow", "\320\236\321\207\320\270\321\201\321\202\320\270\321\202\321\214", Q_NULLPTR));
-        startCountdownButton_3->setText(QApplication::translate("MainWindow", "countdown", Q_NULLPTR));
-        VISA_ON->setText(QApplication::translate("MainWindow", "ON", Q_NULLPTR));
-        label_3->setText(QApplication::translate("MainWindow", "VISA", Q_NULLPTR));
-        SEND->setText(QApplication::translate("MainWindow", "SEND", Q_NULLPTR));
-        OFF->setText(QApplication::translate("MainWindow", "OFF", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        stopCountdownButton_4->setText(QApplication::translate("MainWindow", "STOP", 0));
+        clearMessageBufferButton->setText(QApplication::translate("MainWindow", "\320\236\321\207\320\270\321\201\321\202\320\270\321\202\321\214", 0));
+        startCountdownButton_3->setText(QApplication::translate("MainWindow", "countdown", 0));
+        VISA_ON->setText(QApplication::translate("MainWindow", "ON", 0));
+        label_3->setText(QApplication::translate("MainWindow", "VISA", 0));
+        SEND->setText(QApplication::translate("MainWindow", "SEND", 0));
+        OFF->setText(QApplication::translate("MainWindow", "OFF", 0));
+        startSingleCountButton_2->setText(QApplication::translate("MainWindow", "single", 0));
+        TCP_SERVER_ON->setText(QApplication::translate("MainWindow", "ON", 0));
+        TCP_ON->setText(QApplication::translate("MainWindow", "ON", 0));
+        label_2->setText(QApplication::translate("MainWindow", "TCPIP", 0));
+        label->setText(QApplication::translate("MainWindow", "COM", 0));
+        COM_ON->setText(QApplication::translate("MainWindow", "ON", 0));
+        label_4->setText(QApplication::translate("MainWindow", "TCPIP Server", 0));
     } // retranslateUi
 
 };

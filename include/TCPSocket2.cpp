@@ -1,10 +1,10 @@
 #include "TCPSocket2.h"
 
-TCPSocket::TCPSocket() : isWSACleanup(false)
+TCPSocket2::TCPSocket2() : isWSACleanup(false)
 {
 }
 
-TCPSocket::TCPSocket(QString ip, unsigned int port) : isWSACleanup(false)
+TCPSocket2::TCPSocket2(QString ip, unsigned int port) : isWSACleanup(false)
 {
     //Socket address information
     addr.sin_family = AF_INET;
@@ -13,12 +13,12 @@ TCPSocket::TCPSocket(QString ip, unsigned int port) : isWSACleanup(false)
 }
 
 
-TCPSocket::~TCPSocket()
+TCPSocket2::~TCPSocket2()
 {
     Disconnect();
 }
 
-void TCPSocket::Inisialized()
+void TCPSocket2::Inisialized()
 {
     isConected = false;
 
@@ -38,12 +38,12 @@ void TCPSocket::Inisialized()
     } else {
         std::cout << "It was okay to create the socket\n";
 
-        DWORD timeout = SOCKET_READ_TIMEOUT_SEC * 1000;
+        DWORD timeout = SOCKET_READ_TIMEOUT_SEC2 * 1000;
         setsockopt(u_sock, SOL_SOCKET, SO_RCVTIMEO, (char*)&timeout, sizeof(timeout));
     }   
 }
 
-int TCPSocket::Connect()
+int TCPSocket2::Connect()
 {
     Inisialized();
     int conn = connect(u_sock, (SOCKADDR*)&addr, sizeof(addr));
@@ -59,7 +59,7 @@ int TCPSocket::Connect()
     return conn;
 }
 
-int TCPSocket::Connect(QString ip, unsigned int port)
+int TCPSocket2::Connect(QString ip, unsigned int port)
 {
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = inet_addr(ip.toStdString().data());
@@ -68,14 +68,14 @@ int TCPSocket::Connect(QString ip, unsigned int port)
     return Connect();
 }
 
-void TCPSocket::SetSettings(QString ip, unsigned int port)
+void TCPSocket2::SetSettings(QString ip, unsigned int port)
 {
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = inet_addr(ip.toStdString().data());
     addr.sin_port = htons(port);
 }
 
-void TCPSocket::Disconnect()
+void TCPSocket2::Disconnect()
 {
     if (isConected) {
         isConected = false;
@@ -83,7 +83,7 @@ void TCPSocket::Disconnect()
     }
 }
 
-QByteArray TCPSocket::Read(int count_byte)
+QByteArray TCPSocket2::Read(int count_byte)
 {
     if (!isConected) return QByteArray();
     QByteArray recv_data;
@@ -103,12 +103,12 @@ QByteArray TCPSocket::Read(int count_byte)
 }
 
 
-QByteArray TCPSocket::Read()
+QByteArray TCPSocket2::Read()
 {
     return Read(1024);
 }
 
-void TCPSocket::Write(QByteArray send_data)
+void TCPSocket2::Write(QByteArray send_data)
 {
     if (!isConected) return;
     std::cout << send_data.size() << std::endl;
@@ -122,7 +122,7 @@ void TCPSocket::Write(QByteArray send_data)
     }
 }
 
-bool TCPSocket::IsConected()
+bool TCPSocket2::IsConected()
 {
     return isConected;
 }

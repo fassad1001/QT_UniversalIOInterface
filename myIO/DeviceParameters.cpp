@@ -13,6 +13,14 @@ DeviceParameters::DeviceParameters(ParamSerialPort comPortparameters, int period
 {
 }
 
+DeviceParameters::DeviceParameters(uint port, int period) :
+
+    _port(port) ,
+    _TCPperiod(period) ,
+    _type(DEVICE_IO_PARAMETERS_TYPE::TCP_IP_SERVER)
+{
+}
+
 DeviceParameters::DeviceParameters(QString ip, uint port, int period) :
     _ip(ip) ,
     _port(port) ,
@@ -44,6 +52,16 @@ int DeviceParameters::period() const
 {
     return _COMperiod;
 }
+
+//uint DeviceParameters::portServer() const
+//{
+//    return _portServer
+//}
+
+//int DeviceParameters::TCPperiodServer() const
+//{
+//    return _TCPperiodServer;
+//}
 
 QString DeviceParameters::ip() const
 {

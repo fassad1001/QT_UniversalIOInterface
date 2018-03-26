@@ -28,6 +28,10 @@ private:
     void connectSerialsignals();
     void disconnectSerialsignals();
 
+    TCPServerMonitoring _TCPServerIOInterface;
+    void connectTCPIpServerSignals();
+    void disconnectTCPIpServerSignals();
+
     TCPSocketMonitoring _TCPSocketIOInterface;
     void connectTCPIpSocketSignals();
     void disconnectTCPIpSocketSignals();

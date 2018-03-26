@@ -2,7 +2,7 @@
 
 TCPSocketMonitoring::TCPSocketMonitoring(QObject *parent) :
     QObject(parent) ,
-    TCPSocket() ,
+    TCPSocket2() ,
     _clearStart(false) ,
     _isMonitoringActive(false)
 {
@@ -41,7 +41,7 @@ void TCPSocketMonitoring::stop()
 
 bool TCPSocketMonitoring::isOpen()
 {
-    return TCPSocket::IsConected();
+    return TCPSocket2::IsConected();
 }
 
 QByteArray TCPSocketMonitoring::ReadAll()
@@ -51,7 +51,7 @@ QByteArray TCPSocketMonitoring::ReadAll()
 
 void TCPSocketMonitoring::Write(QByteArray message)
 {
-    TCPSocket::Write(message);
+    TCPSocket2::Write(message);
 }
 
 void TCPSocketMonitoring::clear()

@@ -93,6 +93,12 @@ void TCPServer::Stop()
     isWSACleanup = true;
 }
 
+void TCPServer::sendToAllClients(QByteArray data)
+{
+    foreach (const Client &client, clients)
+        SendToClient(client, data);
+}
+
 void TCPServer::StartAccepting()
 {
     while (StartAcceptingptr->getObj()->GetLiveStatus()) {

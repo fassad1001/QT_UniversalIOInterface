@@ -31,14 +31,22 @@ void DeviceIOInterface::open(bool clearStart)
         connectSerialsignals();
         _serialIOInterface.start(_parameters.comPortParameters(), _parameters.period(), clearStart);
         break;
+
+    case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_SERVER:
+        connectTCPIpServerSignals();
+        _TCPServerIOInterface.start(_parameters.port(), clearStart);
+        break;
+
     case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_CLIENT:
         connectTCPIpSocketSignals();
         _TCPSocketIOInterface.start(_parameters.ip(), _parameters.port(), _parameters.TCPperiod(), clearStart);
         break;
+
     case DEVICE_IO_PARAMETERS_TYPE::VISA:
         connectVISASocketSignal();
         _VISAIOInterface.start(_parameters.VISA_ADDRESS(), _parameters.attributes());
         break;
+
     default:
         break;
     }
@@ -49,6 +57,9 @@ bool DeviceIOInterface::isOpen()
     switch (_parameters.type()) {
     case DEVICE_IO_PARAMETERS_TYPE::COM_PORT:
         return _serialIOInterface.isOpen();
+        break;
+    case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_SERVER:
+        return _TCPServerIOInterface.isOpen();
         break;
     case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_CLIENT:
         return _TCPSocketIOInterface.isOpen();
@@ -67,6 +78,9 @@ void DeviceIOInterface::close()
     switch (_parameters.type()) {
     case DEVICE_IO_PARAMETERS_TYPE::COM_PORT:
         _serialIOInterface.stop();
+        break;
+    case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_SERVER:
+        _TCPServerIOInterface.stop();
         break;
     case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_CLIENT:
         _TCPSocketIOInterface.stop();
@@ -88,6 +102,9 @@ void DeviceIOInterface::write(QByteArray message)
         connectSerialsignals();
         _serialIOInterface.write(message);
         break;
+    case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_SERVER:
+        connectTCPIpServerSignals();
+        _TCPServerIOInterface.Write(message);
     case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_CLIENT:
         connectTCPIpSocketSignals();
         _TCPSocketIOInterface.Write(message);
@@ -106,6 +123,9 @@ void DeviceIOInterface::clear()
     switch (_parameters.type()) {
     case DEVICE_IO_PARAMETERS_TYPE::COM_PORT:
         _serialIOInterface.clearComPort();
+        break;
+    case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_SERVER:
+        _TCPServerIOInterface.clear();
         break;
     case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_CLIENT:
         _TCPSocketIOInterface.clear();
@@ -133,6 +153,24 @@ void DeviceIOInterface::disconnectSerialsignals()
         _connections = 0;
         disconnect (&_serialIOInterface, SIGNAL(wildMessageAppears(QByteArray)), this, SIGNAL(newMessage(QByteArray)));
         qDebug("COM slot disconnect");
+    }
+}
+
+void DeviceIOInterface::connectTCPIpServerSignals()
+{
+    if (_connections == 0) {
+        _connections = 1;
+        connect (&_TCPServerIOInterface, SIGNAL(newMessage(QByteArray)), this, SIGNAL(newMessage(QByteArray)));
+        qDebug("TCPServer slot connect");
+    }
+}
+
+void DeviceIOInterface::disconnectTCPIpServerSignals()
+{
+    if (_connections == 1) {
+        _connections = 0;
+        disconnect (&_TCPServerIOInterface, SIGNAL(newMessage(QByteArray)), this, SIGNAL(newMessage(QByteArray)));
+        qDebug("TCPServer slot disconnect");
     }
 }
 
@@ -178,6 +216,9 @@ void DeviceIOInterface::disconnectAllsignals()
     switch (_parameters.type()) {
     case DEVICE_IO_PARAMETERS_TYPE::COM_PORT:
         disconnectSerialsignals();
+        break;
+    case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_SERVER:
+        disconnectTCPIpServerSignals();
         break;
     case DEVICE_IO_PARAMETERS_TYPE::TCP_IP_CLIENT:
         disconnectTCPIpSocketSignals();

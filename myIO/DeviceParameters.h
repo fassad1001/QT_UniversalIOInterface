@@ -2,12 +2,16 @@
 #define DEVICEPARAMETERS
 
 #include "ComPortMonitoring.h"
+#include "TCPServerMonitoring.h"
 #include "TCPSocketMonitoring.h"
 #include "VISAMonitoring.h"
 
 enum class DEVICE_IO_PARAMETERS_TYPE {
     NONE ,
     COM_PORT ,
+
+    TCP_IP_SERVER ,
+
     TCP_IP_CLIENT ,
     VISA
 };
@@ -17,6 +21,10 @@ class DeviceParameters
 public:
     DeviceParameters();
     DeviceParameters(ParamSerialPort comPortparameters, int period);
+
+
+    DeviceParameters(uint port, int period);
+
     DeviceParameters(QString ip, uint port, int period);
     DeviceParameters(QString VISAAddress, int period = -1, QList<QPair<int, int>> attributes = QList<QPair<int, int>>());
 
@@ -24,6 +32,9 @@ public:
 
     ParamSerialPort comPortParameters() const;
     int period() const;
+
+//    uint portServer() const;
+//    int TCPperiodServer() const;
 
     QString ip() const;
     uint port() const;
@@ -38,6 +49,9 @@ private:
 
     ParamSerialPort _comPortParameters;
     int _COMperiod;
+
+//    uint _portServer;
+//    int _TCPperiodServer;
 
     QString _ip;
     uint _port;

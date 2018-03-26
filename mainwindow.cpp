@@ -75,6 +75,7 @@ void MainWindow::on_TCP_ON_clicked()
     ioInterface.open(true);
 }
 
+
 void MainWindow::on_VISA_ON_clicked()
 {
     DeviceParameters parameters("VISA_Address!", -1);
@@ -87,7 +88,7 @@ void MainWindow::on_VISA_ON_clicked()
 void MainWindow::on_COM_ON_clicked()
 {
     ParamSerialPort param;
-    param.port = "COM6";
+    param.port = "COM2";
     param.rate = 9600;
     param.dbits = 8;
     DeviceParameters parameters(param, 10);
@@ -105,4 +106,13 @@ void MainWindow::on_OFF_clicked()
 void MainWindow::on_SEND_clicked()
 {
     ioInterface.write(QByteArray("LOLKEKCHEBUREK"));
+}
+
+void MainWindow::on_TCP_SERVER_ON_clicked()
+{
+    DeviceParameters parameters(10004, 10);
+
+    ioInterface.setParameters(parameters);
+
+    ioInterface.open(true);
 }

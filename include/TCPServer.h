@@ -50,7 +50,7 @@ public:
 
     void Start();
     void Stop();
-
+    void sendToAllClients(QByteArray data);
     void DisconnectClient(const Client &client);
 signals:
     void signalRecvData(Client client, QByteArray data);

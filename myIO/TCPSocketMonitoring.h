@@ -5,7 +5,7 @@
 #include "include/TCPSocket2.h"
 #include "include/plugcmdlist.h"
 
-class TCPSocketMonitoring : public QObject, public TCPSocket
+class TCPSocketMonitoring : public QObject, public TCPSocket2
 {
     Q_OBJECT
 public:
@@ -26,14 +26,13 @@ private:
     int _check_timeout;
     bool _clearStart;
 
-    defPostPtrFuncA2(TCPSocketMonitoring, TStartMonitoring, StartMonitoringPtr)
+    defPostPtrFuncA2(TCPSocketMonitoring, TStartMonitoring,  StartMonitoringPtr)
     void StartMonitoringInAnotherThread();
     void StartMonitoring();
 
     defPostPtrFuncA2(TCPSocketMonitoring, TStopMonitoring, StopMonitoringPtr)
     void StopMonitoringInAnotherThread();
     void StopMonitoring();
-//    void StopMonitoring();
 
     void CreateTCPClient();
 signals:
@@ -41,3 +40,7 @@ signals:
 };
 
 #endif // TCPSOCKETMONITORING_H
+
+
+
+

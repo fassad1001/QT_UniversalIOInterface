@@ -43,6 +43,8 @@ private slots:
 
     void on_SEND_clicked();
 
+    void on_TCP_SERVER_ON_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
